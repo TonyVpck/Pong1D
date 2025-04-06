@@ -1,7 +1,7 @@
 // PONG 1D //
-// jeu de pong led en 1 dimenssion 
-// Il s'agit d'un remix du code de FlyingAngel (source : https://projecthub.arduino.cc/flyingangel/1d-pong-1a0acf)
-// 
+// jeu de pong led en une dimension (celle de la bande led).
+// TIPS de pro : pour plus de fun multiplier les Pong 1D pour avoir plusieurs bandes leds simultanées : éclate garantie
+// Ce code est un remix du code de 2020 de FlyingAngel (source : https://projecthub.arduino.cc/flyingangel/1d-pong-1a0acf)
 
 #define FASTLED_INTERNAL       // Disable version number message in FastLED library (looks like an error)
 #include <FastLED.h>
@@ -60,19 +60,19 @@ byte scoreDimBright = maxBright / 4;        // Luminosité des scores en version
 // *********************************
 void setup()
 {
-  randomSeed(analogRead(0));          // better Random
+  randomSeed(analogRead(0));          // génartion du hasard
 
   // FastLed definition
   FastLED.addLeds<NEOPIXEL, DATA_PIN>(leds, NUM_LEDS);
 
   // PIN defination
-  pinMode(playerBtnPin[0], INPUT_PULLUP);   // PINs for buttons
+  pinMode(playerBtnPin[0], INPUT_PULLUP);   // Délcaration des pins boutons
   pinMode(playerBtnPin[1], INPUT_PULLUP);
 
   pinMode(playerLedPin[0], OUTPUT);
-  pinMode(playerLedPin[1], OUTPUT);         // PINs for LEDs
+  pinMode(playerLedPin[1], OUTPUT);         // Délcaration des pins led
 
-  playerStart = random(2);  // random starting player
+  playerStart = random(2);  // commencer par un joueur au hasard
 }
 
 void loop()
